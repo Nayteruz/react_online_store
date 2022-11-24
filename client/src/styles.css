@@ -1,6 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import 'bootstrap/dist/css/bootstrap.min.css';
 body {
-  background: teal;
+  background: teal !important;
+  font-family: "Roboto", sans-serif;
+}
+
+.btn-purple {
+  color: #4b14b3;
+  border-color: #4b14b3;
+}
+.btn-purple:hover {
+  background: #4b14b3;
+  border-color: #4b14b3;
+  color: #fff;
+}
+
+a.link-form {
+  color: #4b14b3;
+}
+a.link-form:hover {
+  color: #7d43ea;
 }
 
 /*# sourceMappingURL=styles.css.map */
