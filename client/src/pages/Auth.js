@@ -1,13 +1,35 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import {Button, Card, Container, Form, Row} from "react-bootstrap";
-import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
-import {useLocation, NavLink} from "react-router-dom";
+import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
+import {useLocation, NavLink, useNavigate} from "react-router-dom";
+import {login, registration} from "../http/userApi";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
 
-const Auth = () => {
-
+const Auth = observer(() => {
+    const {user} = useContext(Context);
     const location = useLocation();
+    const history = useNavigate();
     const isLogin = location.pathname === LOGIN_ROUTE;
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
+    const actionUser = async () => {
+        try {
+            let data;
+            if (isLogin) {
+                data = await login(email, password);
+            } else {
+                data = await registration(email, password);
+            }
+            user.setUser(data);
+            user.setIsAuth(true);
+            history(SHOP_ROUTE);
+        } catch (e){
+            alert(e.response.data.message)
+        }
+
+    }
 
     return (
         <Container
@@ -20,10 +42,15 @@ const Auth = () => {
                     <Form.Control
                         placeholder="Введите ваш email..."
                         className="mt-3"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
                     />
                     <Form.Control
                         placeholder="Введите ваш пароль..."
                         className="mt-3"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        type="password"
                     />
                     <Row>
                         <div className="d-flex align-items-center justify-content-between mt-3 flex-row">
@@ -41,6 +68,7 @@ const Auth = () => {
                                 className="btn-purple"
                                 style={{width: 'auto'}}
                                 variant={"outline-success"}
+                                onClick={actionUser}
                             >
                                 {isLogin ? 'Войти' : 'Регистрация'}
                             </Button>
@@ -51,6 +79,6 @@ const Auth = () => {
 
         </Container>
     );
-};
+});
 
 export default Auth;

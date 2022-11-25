@@ -15,11 +15,11 @@ export default class DeviceStore {
             {id: 4, name: 'Asus'},
         ];
         this._devices = [
-            {id: 1, name: 'Ipone 12 pro', price: 20000, rating: 5, img: 'https://picsum.photos/400/300'},
-            {id: 2, name: 'Ipone 12 pro', price: 25000, rating: 5, img: 'https://picsum.photos/400/300'},
-            {id: 3, name: 'Ipone 12 pro', price: 30000, rating: 5, img: 'https://picsum.photos/400/300'},
-            {id: 4, name: 'Ipone 12 pro', price: 28000, rating: 5, img: 'https://picsum.photos/400/300'},
-            {id: 5, name: 'Ipone 12 pro', price: 38000, rating: 5, img: 'https://picsum.photos/400/300'},
+            {id: 1, name: 'Ipone 12 pro', price: 20000, rating: 5, img: 'https://picsum.photos/400/301'},
+            {id: 2, name: 'Ipone 12 pro', price: 25000, rating: 5, img: 'https://picsum.photos/400/302'},
+            {id: 3, name: 'Ipone 12 pro', price: 30000, rating: 5, img: 'https://picsum.photos/400/303'},
+            {id: 4, name: 'Ipone 12 pro', price: 28000, rating: 5, img: 'https://picsum.photos/400/304'},
+            {id: 5, name: 'Ipone 12 pro', price: 38000, rating: 5, img: 'https://picsum.photos/400/305'},
         ]
         this._selectedFolder = {}
         this._selectedVendor = {}

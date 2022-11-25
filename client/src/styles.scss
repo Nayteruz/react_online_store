@@ -8,6 +8,14 @@ $roboto: 'Roboto', sans-serif;;
 body {
     background: teal !important;
     font-family: $roboto;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    * {
+        box-sizing: border-box;
+    }
 }
 
 .btn-purple {
