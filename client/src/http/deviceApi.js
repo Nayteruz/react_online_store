@@ -1,19 +1,43 @@
 import {$authHost, $host} from "./index";
-import jwt_decode from "jwt-decode";
 
-export const createDevice = async (email, password) => {
-    const {data} = await $host.post('api/user/registration', {email, password, role:'ADMIN'})
-    return data;
+export const createFolder = async (folder) => {
+	const {data} = await $authHost.post('api/folder', folder);
+	return data;
 }
 
-export const login = async (email, password) => {
-    const {data} = await $host.post('api/user/login', {email, password})
-    localStorage.setItem('token', data.token)
-    return jwt_decode(data.token)
+export const fetchFolders = async () => {
+	const {data} = await $host.get('api/folder');
+	return data;
 }
 
-export const check = async () => {
-    const {data} = await $authHost.get('api/user/auth')
-    localStorage.setItem('token', data.token)
-    return jwt_decode(data.token)
+export const createVendor = async (vendor) => {
+	const {data} = await $authHost.post('api/vendor', vendor);
+	return data;
+}
+
+export const fetchVendors = async () => {
+	const {data} = await $host.get('api/vendor');
+	return data;
+}
+
+export const createDevice = async (device) => {
+	const {data} = await $authHost.post('api/device', device);
+	return data;
+}
+
+export const fetchDevices = async (folderId, vendorId, page, limit) => {
+	const {data} = await $host.get('api/device', {
+		params: {
+			folderId, vendorId, page, limit
+		}
+	});
+	return data;
+}
+export const fetchOneDevice = async (id) => {
+	if (id) {
+		const {data} = await $host.get('api/device/' + id);
+		return data;
+	}
+	return {info: []}
+
 }

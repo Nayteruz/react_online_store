@@ -18,12 +18,16 @@ const App = observer(() => {
                 user.setUser(true)
                 user.setIsAuth(true)
             }).finally(()=> setLoading(false))
-        }, 1000)
+        }, 1)
 
     }, [])
 
     if (loading){
-        return <Spinner animation={"grow"} />
+        return (
+            <div className="d-flex align-items-center justify-content-center vw-100 vh-100">
+                <Spinner animation={"grow"} style={{width:'25vw', height:'25vw'}}/>
+            </div>
+        )
     }
 
     return (

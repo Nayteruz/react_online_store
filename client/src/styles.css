@@ -1,32 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url(bootstrap/dist/css/bootstrap.min.css);
 body {
   background: teal !important;
-  font-family: "Roboto", sans-serif;
-}
-body img {
-  max-width: 100%;
-  height: auto;
-}
-body * {
-  box-sizing: border-box;
-}
+  font-family: "Roboto", sans-serif; }
+  body img {
+    max-width: 100%;
+    height: auto; }
+  body * {
+    box-sizing: border-box; }
 
 .btn-purple {
   color: #4b14b3;
-  border-color: #4b14b3;
-}
-.btn-purple:hover {
-  background: #4b14b3;
-  border-color: #4b14b3;
-  color: #fff;
-}
+  border-color: #4b14b3; }
+  .btn-purple:hover {
+    background: #4b14b3;
+    border-color: #4b14b3;
+    color: #fff; }
 
 a.link-form {
-  color: #4b14b3;
-}
-a.link-form:hover {
-  color: #7d43ea;
-}
+  color: #4b14b3; }
+  a.link-form:hover {
+    color: #7d43ea; }
+
+@media all and (max-width: 768px) {
+  .vendor-list {
+    margin-top: 1rem; } }
 
 /*# sourceMappingURL=styles.css.map */

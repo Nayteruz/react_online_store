@@ -5,10 +5,11 @@ import {useNavigate} from "react-router-dom";
 import {DEVICE_ROUTE} from "../utils/consts";
 const DeviceItem = ({device}) => {
     const history = useNavigate();
+    const baseUrl = process.env.REACT_APP_API_URL;
     return (
         <Col md={3} className="mt-3" onClick={() => history(DEVICE_ROUTE + '/' + device.id)}>
             <Card style={{cursor:'pointer'}} border={'light'}>
-                <Image width={250} height={250} src={device.img} style={{borderRadius:'8px'}} />
+                <Image src={baseUrl + '/' + device.img} style={{borderRadius:'8px'}} />
                 <div className="text-black-50 d-flex justify-content-between">
                     <div>Samsung...</div>
                     <div className="d-flex align-items-center gap-1">

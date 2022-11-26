@@ -34,3 +34,10 @@ a.link-form {
         color:lighten($link, 20%)
     }
 }
+
+.vendor-list {
+    @media all and(max-width:768px){
+        margin-top: 1rem;
+    }
+
+}
